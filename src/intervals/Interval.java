@@ -2,9 +2,9 @@ package intervals;
 
 public class Interval {
 
-	private double minimum;
-	private double maximum;
-	private Opening opening;
+	protected double minimum;
+	protected double maximum;
+	protected Opening opening;
 
 	public Interval(double minimum, double maximum, Opening opening) {
 		this.minimum = minimum;
