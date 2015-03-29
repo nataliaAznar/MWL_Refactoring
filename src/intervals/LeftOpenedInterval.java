@@ -11,25 +11,7 @@ public class LeftOpenedInterval extends Interval{
 	}
 	
 	public boolean includes(Interval interval) {
-		boolean minimumIncluded = this.includes(interval.minimum);
-		boolean maximumIncluded = this.includes(interval.maximum);
-		switch (interval.opening) {
-		case BOTH_OPENED:
-			return (minimumIncluded || minimum == interval.minimum)
-					&& (maximumIncluded || maximum == interval.maximum);
-		case LEFT_OPENED:
-			return (minimumIncluded || minimum == interval.minimum)
-					&& (maximumIncluded || maximum == interval.maximum);
-		case RIGHT_OPENED:
-			return (minimumIncluded)
-					&& (maximumIncluded || maximum == interval.maximum);
-		case UNOPENED:
-			return (minimumIncluded)
-					&& (maximumIncluded || maximum == interval.maximum);
-		default:
-			assert false;
-			return false;
-		}
+		return interval.isIncluded(this);
 	}
 	
 	public boolean intersectsWith(Interval interval) {
@@ -40,6 +22,30 @@ public class LeftOpenedInterval extends Interval{
 			interval.opening == Opening.UNOPENED;
 		return this.includes(interval.minimum)
 				|| this.includes(interval.maximum);
+	}
+
+	@Override
+	public boolean isIncluded(BothOpenedInterval interval) {
+		return (interval.includes(minimum) || minimum == interval.minimum)
+				&& (interval.includes(maximum));
+	}
+
+	@Override
+	public boolean isIncluded(LeftOpenedInterval interval) {
+		return (interval.includes(minimum) || minimum == interval.minimum)
+				&& (interval.includes(maximum) || maximum == interval.maximum);
+	}
+
+	@Override
+	public boolean isIncluded(RightOpenedInterval interval) {
+		return (interval.includes(minimum) || minimum == interval.minimum)
+				&& (interval.includes(maximum));
+	}
+
+	@Override
+	public boolean isIncluded(UnopenedInterval interval) {
+		return (interval.includes(minimum) || minimum == interval.minimum)
+				&& (interval.includes(maximum) || maximum == interval.maximum);
 	}
 
 }
