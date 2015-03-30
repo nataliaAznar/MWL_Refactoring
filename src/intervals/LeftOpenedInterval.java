@@ -2,8 +2,8 @@ package intervals;
 
 public class LeftOpenedInterval extends Interval{
 
-	public LeftOpenedInterval(double minimum, double maximum, Opening opening) {
-		super(minimum, maximum, opening);
+	public LeftOpenedInterval(double minimum, double maximum) {
+		super(minimum, maximum);
 	}
 	
 	public boolean includes(double value) {
@@ -18,8 +18,7 @@ public class LeftOpenedInterval extends Interval{
 		if (minimum == interval.maximum) 
 			return false;
 		if (maximum == interval.minimum) 
-			return interval.opening == Opening.RIGHT_OPENED ||
-			interval.opening == Opening.UNOPENED;
+			return interval.isIntersected(this);
 		return intersectsWithDefault(interval);
 	}
 
@@ -45,6 +44,16 @@ public class LeftOpenedInterval extends Interval{
 	public boolean isIncluded(UnopenedInterval interval) {
 		return (interval.includes(minimum) || minimum == interval.minimum)
 				&& (interval.includes(maximum) || maximum == interval.maximum);
+	}
+	
+	@Override
+	public boolean isIntersected(RightOpenedInterval interval){
+		return true;
+	}
+	
+	@Override
+	public boolean isIntersectedMinimum(UnopenedInterval interval){
+		return true;
 	}
 
 }
