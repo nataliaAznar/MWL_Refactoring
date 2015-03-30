@@ -29,6 +29,11 @@ public abstract class Interval {
 	public abstract boolean isIncluded(RightOpenedInterval interval);
 	
 	public abstract boolean isIncluded(UnopenedInterval interval);
+	
+	public boolean intersectsWithDefault(Interval interval){
+		return this.includes(interval.minimum)
+				|| this.includes(interval.maximum);
+	}
 
 	@Override
 	public String toString() {
