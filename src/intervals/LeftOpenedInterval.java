@@ -2,12 +2,12 @@ package intervals;
 
 public class LeftOpenedInterval extends Interval{
 
-	public LeftOpenedInterval(double minimum, double maximum) {
+	public LeftOpenedInterval(FromPoint minimum, ExactPoint maximum) {
 		super(minimum, maximum);
 	}
 	
 	public boolean includes(double value) {
-		return minimum < value && value <= maximum;
+		return minimum.getNumber() < value && value <= maximum.getNumber();
 	}
 	
 	public boolean includes(Interval interval) {
@@ -25,29 +25,29 @@ public class LeftOpenedInterval extends Interval{
 	@Override
 	public boolean isIncluded(BothOpenedInterval interval) {
 		return this.isIncludedMinimum(interval)
-				&& (interval.includes(maximum));
+				&& (interval.includes(maximum.getNumber()));
 	}
 
 	@Override
 	public boolean isIncluded(LeftOpenedInterval interval) {
 		return this.isIncludedMinimum(interval)
-				&& (interval.includes(maximum) || maximum == interval.maximum);
+				&& (interval.includes(maximum.getNumber()) || maximum == interval.maximum);
 	}
 
 	@Override
 	public boolean isIncluded(RightOpenedInterval interval) {
 		return this.isIncludedMinimum(interval)
-				&& (interval.includes(maximum));
+				&& (interval.includes(maximum.getNumber()));
 	}
 
 	@Override
 	public boolean isIncluded(UnopenedInterval interval) {
 		return this.isIncludedMinimum(interval)
-				&& (interval.includes(maximum) || maximum == interval.maximum);
+				&& (interval.includes(maximum.getNumber()) || maximum == interval.maximum);
 	}
 	
 	private boolean isIncludedMinimum(Interval interval){
-		return (interval.includes(minimum) || minimum == interval.minimum);
+		return (interval.includes(minimum.getNumber()) || minimum == interval.minimum);
 	}
 	
 	@Override

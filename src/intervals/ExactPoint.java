@@ -2,7 +2,7 @@ package intervals;
 
 public class ExactPoint extends Point{
 
-	public ExactPoint(int number) {
+	public ExactPoint(double number) {
 		super(number);
 	}
 

@@ -2,7 +2,7 @@ package intervals;
 
 public class FromPoint extends Point{
 
-	public FromPoint(int number) {
+	public FromPoint(double number) {
 		super(number);
 	}
 

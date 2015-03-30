@@ -5,27 +5,27 @@ public class IntervalFactory {
 
 	public static Interval getInterval(double minimum, double maximum, Opening opening) {
 		switch(opening){
-		case BOTH_OPENED: return getBothOpenedInterval(minimum, maximum);
-		case LEFT_OPENED: return getLeftOpenedInterval(minimum, maximum);
-		case RIGHT_OPENED: return getRightOpenedInterval(minimum, maximum);
-		case UNOPENED: return getUnopenedInterval(minimum, maximum);
+		case BOTH_OPENED: return getBothOpenedInterval(new FromPoint(minimum), new UntilPoint(maximum));
+		case LEFT_OPENED: return getLeftOpenedInterval(new FromPoint(minimum), new ExactPoint(maximum));
+		case RIGHT_OPENED: return getRightOpenedInterval(new ExactPoint(minimum), new UntilPoint(maximum));
+		case UNOPENED: return getUnopenedInterval(new ExactPoint(minimum), new ExactPoint(maximum));
 		default: return null;
 		}
 	}
 	
-	public static Interval getBothOpenedInterval(double minimum, double maximum) {
+	public static Interval getBothOpenedInterval(FromPoint  minimum, UntilPoint maximum) {
 		return new BothOpenedInterval(minimum, maximum);
 	}
 	
-	public static Interval getLeftOpenedInterval(double minimum, double maximum) {
+	public static Interval getLeftOpenedInterval(FromPoint minimum, ExactPoint maximum) {
 		return new LeftOpenedInterval(minimum, maximum);
 	}
 	
-	public static Interval getRightOpenedInterval(double minimum, double maximum) {
+	public static Interval getRightOpenedInterval(ExactPoint minimum, UntilPoint maximum) {
 		return new RightOpenedInterval(minimum, maximum);
 	}
 	
-	public static Interval getUnopenedInterval(double minimum, double maximum) {
+	public static Interval getUnopenedInterval(ExactPoint minimum, ExactPoint maximum) {
 		return new UnopenedInterval(minimum, maximum);
 	}
 }

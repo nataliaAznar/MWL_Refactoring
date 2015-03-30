@@ -2,7 +2,7 @@ package intervals;
 
 public class UntilPoint extends Point{
 
-	public UntilPoint(int number) {
+	public UntilPoint(double number) {
 		super(number);
 	}
 

@@ -2,12 +2,12 @@ package intervals;
 
 public class UnopenedInterval extends Interval{
 
-	public UnopenedInterval(double minimum, double maximum) {
+	public UnopenedInterval(ExactPoint minimum, ExactPoint maximum) {
 		super(minimum, maximum);
 	}
 	
 	public boolean includes(double value) {
-		return minimum <= value && value <= maximum;
+		return minimum.getNumber() <= value && value <= maximum.getNumber();
 	}
 
 	public boolean includes(Interval interval) {
@@ -24,25 +24,25 @@ public class UnopenedInterval extends Interval{
 
 	@Override
 	public boolean isIncluded(BothOpenedInterval interval) {
-		return (interval.includes(minimum)) && (interval.includes(maximum));
+		return (interval.includes(minimum.getNumber())) && (interval.includes(maximum.getNumber()));
 	}
 
 	@Override
 	public boolean isIncluded(LeftOpenedInterval interval) {
-		return (interval.includes(minimum))
-				&& (interval.includes(maximum) || maximum == interval.maximum);
+		return (interval.includes(minimum.getNumber()))
+				&& (interval.includes(maximum.getNumber()) || maximum == interval.maximum);
 	}
 
 	@Override
 	public boolean isIncluded(RightOpenedInterval interval) {
-		return (interval.includes(minimum) || minimum == interval.minimum)
-				&& (interval.includes(maximum));
+		return (interval.includes(minimum.getNumber()) || minimum == interval.minimum)
+				&& (interval.includes(maximum.getNumber()));
 	}
 
 	@Override
 	public boolean isIncluded(UnopenedInterval interval) {
-		return (interval.includes(minimum) || minimum == interval.minimum)
-				&& (interval.includes(maximum) || maximum == interval.maximum);
+		return (interval.includes(minimum.getNumber()) || minimum == interval.minimum)
+				&& (interval.includes(maximum.getNumber()) || maximum == interval.maximum);
 	}
 	
 	@Override

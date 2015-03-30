@@ -2,12 +2,12 @@ package intervals;
 
 public class BothOpenedInterval extends Interval {
 
-	public BothOpenedInterval(double minimum, double maximum) {
+	public BothOpenedInterval(FromPoint minimum, UntilPoint maximum) {
 		super(minimum, maximum);
 	}
 	
 	public boolean includes(double value) {
-		return minimum < value && value < maximum;
+		return minimum.getNumber() < value && value < maximum.getNumber();
 	}
 	
 	public boolean includes(Interval interval) {
@@ -45,7 +45,7 @@ public class BothOpenedInterval extends Interval {
 	}
 
 	private boolean isIncludedDefault(Interval interval){
-		return (interval.includes(minimum) || minimum == interval.minimum)
-				&& (interval.includes(maximum) || maximum == interval.maximum);
+		return (interval.includes(minimum.getNumber()) || minimum == interval.minimum)
+				&& (interval.includes(maximum.getNumber()) || maximum == interval.maximum);
 	}
 }
