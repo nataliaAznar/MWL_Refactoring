@@ -26,26 +26,26 @@ public class BothOpenedInterval extends Interval {
 
 	@Override
 	public boolean isIncluded(BothOpenedInterval interval) {
-		return (interval.includes(minimum) || minimum == interval.minimum)
-				&& (interval.includes(maximum) || maximum == interval.maximum);
+		return this.isIncludedDefault(interval);
 	}
 
 	@Override
 	public boolean isIncluded(LeftOpenedInterval interval) {
-		return (interval.includes(minimum) || minimum == interval.minimum)
-				&& (interval.includes(maximum) || maximum == interval.maximum);
+		return this.isIncludedDefault(interval);
 	}
 
 	@Override
 	public boolean isIncluded(RightOpenedInterval interval) {
-		return (interval.includes(minimum) || minimum == interval.minimum)
-				&& (interval.includes(maximum) || maximum == interval.maximum);
+		return this.isIncludedDefault(interval);
 	}
 
 	@Override
 	public boolean isIncluded(UnopenedInterval interval) {
+		return this.isIncludedDefault(interval);
+	}
+
+	private boolean isIncludedDefault(Interval interval){
 		return (interval.includes(minimum) || minimum == interval.minimum)
 				&& (interval.includes(maximum) || maximum == interval.maximum);
 	}
-
 }
