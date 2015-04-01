@@ -15,9 +15,9 @@ public class RightOpenedInterval extends Interval{
 	}
 	
 	public boolean intersectsWith(Interval interval) {
-		if (minimum == interval.maximum) 
+		if (minimum.getNumber() == interval.maximum.getNumber()) 
 			return interval.isIntersected(this);
-		if (maximum == interval.minimum)
+		if (maximum.getNumber() == interval.minimum.getNumber())
 			return false;
 		return intersectsWithDefault(interval);
 	}
@@ -36,18 +36,18 @@ public class RightOpenedInterval extends Interval{
 
 	@Override
 	public boolean isIncluded(RightOpenedInterval interval) {
-		return (interval.includes(minimum.getNumber()) || minimum == interval.minimum)
+		return (interval.includes(minimum.getNumber()) || minimum.getNumber() == interval.minimum.getNumber())
 				&& this.isIncludedMaximum(interval);
 	}
 
 	@Override
 	public boolean isIncluded(UnopenedInterval interval) {
-		return (interval.includes(minimum.getNumber()) || minimum == interval.minimum)
+		return (interval.includes(minimum.getNumber()) || minimum.getNumber() == interval.minimum.getNumber())
 				&& this.isIncludedMaximum(interval);
 	}
 	
 	private boolean isIncludedMaximum(Interval interval){
-		return (interval.includes(maximum.getNumber()) || maximum == interval.maximum);
+		return (interval.includes(maximum.getNumber()) || maximum.getNumber() == interval.maximum.getNumber());
 	}
 	
 	@Override
