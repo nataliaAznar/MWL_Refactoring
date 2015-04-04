@@ -15,13 +15,18 @@ public abstract class Point {
 		this.number = number;
 	}
 	
-	public boolean includes(Point p){
-		return true;
-	}
+	public abstract boolean includes(Point p);
 	
 	public abstract boolean isIncluded(FromPoint p);
 	
 	public abstract boolean isIncluded(UntilPoint p);
+	
+	public boolean isIncluded(ExactPoint p) {
+		if( p.getType().equals(Type.MAXIMUM))
+			return p.getNumber() >= this.getNumber();
+		else
+			return p.getNumber() <= this.getNumber();
+	}
 	
 	@Override
 	public boolean equals(Object object) {

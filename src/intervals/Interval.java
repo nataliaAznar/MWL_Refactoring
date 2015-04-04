@@ -18,8 +18,6 @@ public abstract class Interval {
 	
 	public abstract boolean includes(Interval interval);
 	
-	public abstract boolean includes(double value);
-	
 	public abstract boolean isIncluded(LeftOpenedInterval interval);
 	
 	public abstract boolean isIncluded(RightOpenedInterval interval);
@@ -45,6 +43,10 @@ public abstract class Interval {
 	
 	public boolean isIntersectedMaximum(UnopenedInterval interval){
 		return false;
+	}
+	
+	public boolean includes(double value) {
+		return minimum.getNumber() < value && value < maximum.getNumber();
 	}
 
 	@Override

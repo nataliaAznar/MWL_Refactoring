@@ -11,7 +11,8 @@ public class LeftOpenedInterval extends Interval{
 	}
 	
 	public boolean includes(Interval interval) {
-		return interval.isIncluded(this);
+		return minimum.includes(interval.minimum)&&minimum.includes(interval.maximum)&&
+				maximum.includes(interval.minimum)&&maximum.includes(interval.maximum);
 	}
 	
 	public boolean intersectsWith(Interval interval) {

@@ -6,9 +6,9 @@ public class IntervalFactory {
 	public static Interval getInterval(double minimum, double maximum, Opening opening) {
 		switch(opening){
 		case BOTH_OPENED: return getBothOpenedInterval(new FromPoint(minimum), new UntilPoint(maximum));
-		case LEFT_OPENED: return getLeftOpenedInterval(new FromPoint(minimum), new ExactPoint(maximum));
-		case RIGHT_OPENED: return getRightOpenedInterval(new ExactPoint(minimum), new UntilPoint(maximum));
-		case UNOPENED: return getUnopenedInterval(new ExactPoint(minimum), new ExactPoint(maximum));
+		case LEFT_OPENED: return getLeftOpenedInterval(new FromPoint(minimum), new ExactPoint(maximum, Type.MAXIMUM));
+		case RIGHT_OPENED: return getRightOpenedInterval(new ExactPoint(minimum, Type.MINIMUM), new UntilPoint(maximum));
+		case UNOPENED: return getUnopenedInterval(new ExactPoint(minimum, Type.MAXIMUM), new ExactPoint(maximum, Type.MAXIMUM));
 		default: return null;
 		}
 	}
