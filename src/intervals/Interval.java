@@ -18,8 +18,6 @@ public abstract class Interval {
 	
 	public abstract boolean includes(Interval interval);
 	
-	public abstract boolean isIncluded(UnopenedInterval interval);
-	
 	public boolean intersectsWithDefault(Interval interval){
 		return this.includes(interval.minimum.getNumber())
 				|| this.includes(interval.maximum.getNumber());

@@ -11,7 +11,8 @@ public class UnopenedInterval extends Interval{
 	}
 
 	public boolean includes(Interval interval) {
-		return interval.isIncluded(this);
+		return minimum.includes(interval.minimum)&&minimum.includes(interval.maximum)&&
+				maximum.includes(interval.minimum)&&maximum.includes(interval.maximum);
 	}
 	
 	public boolean intersectsWith(Interval interval) {
@@ -20,12 +21,6 @@ public class UnopenedInterval extends Interval{
 		if (maximum.getNumber() == interval.minimum.getNumber()) 
 			return interval.isIntersectedMaximum(this);
 		return intersectsWithDefault(interval);
-	}
-
-	@Override
-	public boolean isIncluded(UnopenedInterval interval) {
-		return (interval.includes(minimum.getNumber()) || minimum.getNumber() == interval.minimum.getNumber())
-				&& (interval.includes(maximum.getNumber()) || maximum.getNumber() == interval.maximum.getNumber());
 	}
 	
 	@Override

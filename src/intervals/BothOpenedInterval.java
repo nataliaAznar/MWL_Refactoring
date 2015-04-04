@@ -25,11 +25,6 @@ public class BothOpenedInterval extends Interval {
 		return intersectsWithDefault(interval);
 	}
 
-	@Override
-	public boolean isIncluded(UnopenedInterval interval) {
-		return this.isIncludedDefault(interval);
-	}
-
 	private boolean isIncludedDefault(Interval interval){
 		return (interval.includes(minimum.getNumber()) || minimum.getNumber() == interval.minimum.getNumber())
 				&& (interval.includes(maximum.getNumber()) || maximum.getNumber() == interval.maximum.getNumber());

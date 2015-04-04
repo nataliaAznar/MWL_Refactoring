@@ -22,12 +22,6 @@ public class RightOpenedInterval extends Interval{
 			return false;
 		return intersectsWithDefault(interval);
 	}
-
-	@Override
-	public boolean isIncluded(UnopenedInterval interval) {
-		return (interval.includes(minimum.getNumber()) || minimum.getNumber() == interval.minimum.getNumber())
-				&& this.isIncludedMaximum(interval);
-	}
 	
 	private boolean isIncludedMaximum(Interval interval){
 		return (interval.includes(maximum.getNumber()) || maximum.getNumber() == interval.maximum.getNumber());

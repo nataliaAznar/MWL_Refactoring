@@ -8,7 +8,7 @@ public class IntervalFactory {
 		case BOTH_OPENED: return getBothOpenedInterval(new FromPoint(minimum), new UntilPoint(maximum));
 		case LEFT_OPENED: return getLeftOpenedInterval(new FromPoint(minimum), new ExactPoint(maximum, Type.MAXIMUM));
 		case RIGHT_OPENED: return getRightOpenedInterval(new ExactPoint(minimum, Type.MINIMUM), new UntilPoint(maximum));
-		case UNOPENED: return getUnopenedInterval(new ExactPoint(minimum, Type.MAXIMUM), new ExactPoint(maximum, Type.MAXIMUM));
+		case UNOPENED: return getUnopenedInterval(new ExactPoint(minimum, Type.MINIMUM), new ExactPoint(maximum, Type.MAXIMUM));
 		default: return null;
 		}
 	}
