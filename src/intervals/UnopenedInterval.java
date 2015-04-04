@@ -9,11 +9,6 @@ public class UnopenedInterval extends Interval{
 	public boolean includes(double value) {
 		return minimum.getNumber() <= value && value <= maximum.getNumber();
 	}
-
-	public boolean includes(Interval interval) {
-		return minimum.includes(interval.minimum)&&minimum.includes(interval.maximum)&&
-				maximum.includes(interval.minimum)&&maximum.includes(interval.maximum);
-	}
 	
 	public boolean intersectsWith(Interval interval) {
 		if (minimum.getNumber() == interval.maximum.getNumber())
