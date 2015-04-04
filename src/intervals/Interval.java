@@ -13,14 +13,12 @@ public abstract class Interval {
 	public double midPoint() {
 		return (maximum.getNumber() + minimum.getNumber()) / 2;
 	}
-	
-	public abstract boolean includes(double value);
 
 	public abstract boolean intersectsWith(Interval interval);
 	
 	public boolean intersectsWithDefault(Interval interval){
-		return this.includes(interval.minimum.getNumber())
-				|| this.includes(interval.maximum.getNumber());
+		return (minimum.includes(interval.minimum)&&maximum.includes(interval.minimum))
+				|| (minimum.includes(interval.maximum)&&maximum.includes(interval.maximum));
 	}
 	
 	public boolean isIntersected(LeftOpenedInterval interval){
