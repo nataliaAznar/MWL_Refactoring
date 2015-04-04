@@ -25,8 +25,4 @@ public class BothOpenedInterval extends Interval {
 		return intersectsWithDefault(interval);
 	}
 
-	private boolean isIncludedDefault(Interval interval){
-		return (interval.includes(minimum.getNumber()) || minimum.getNumber() == interval.minimum.getNumber())
-				&& (interval.includes(maximum.getNumber()) || maximum.getNumber() == interval.maximum.getNumber());
-	}
 }

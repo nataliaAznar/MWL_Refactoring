@@ -23,10 +23,6 @@ public class LeftOpenedInterval extends Interval{
 		return intersectsWithDefault(interval);
 	}
 	
-	private boolean isIncludedMinimum(Interval interval){
-		return (interval.includes(minimum.getNumber()) || minimum.getNumber() == interval.minimum.getNumber());
-	}
-	
 	@Override
 	public boolean isIntersected(RightOpenedInterval interval){
 		return true;

@@ -23,10 +23,6 @@ public class RightOpenedInterval extends Interval{
 		return intersectsWithDefault(interval);
 	}
 	
-	private boolean isIncludedMaximum(Interval interval){
-		return (interval.includes(maximum.getNumber()) || maximum.getNumber() == interval.maximum.getNumber());
-	}
-	
 	@Override
 	public boolean isIntersected(LeftOpenedInterval interval){
 		return true;

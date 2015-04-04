@@ -13,6 +13,8 @@ public abstract class Interval {
 	public double midPoint() {
 		return (maximum.getNumber() + minimum.getNumber()) / 2;
 	}
+	
+	public abstract boolean includes(double value);
 
 	public abstract boolean intersectsWith(Interval interval);
 	
@@ -37,10 +39,6 @@ public abstract class Interval {
 	
 	public boolean isIntersectedMaximum(UnopenedInterval interval){
 		return false;
-	}
-	
-	public boolean includes(double value) {
-		return minimum.getNumber() < value && value < maximum.getNumber();
 	}
 
 	@Override
