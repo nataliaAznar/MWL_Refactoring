@@ -20,8 +20,6 @@ public abstract class Interval {
 	
 	public abstract boolean includes(double value);
 	
-	public abstract boolean isIncluded(BothOpenedInterval interval);
-	
 	public abstract boolean isIncluded(LeftOpenedInterval interval);
 	
 	public abstract boolean isIncluded(RightOpenedInterval interval);

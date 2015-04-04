@@ -6,4 +6,20 @@ public class FromPoint extends Point{
 		super(number);
 	}
 
+
+	public boolean includes(Point p){
+		return p.isIncluded(this);
+	}
+	
+	@Override
+	public boolean isIncluded(FromPoint p) {
+		return p.getNumber() <= this.getNumber();
+	}
+
+
+	@Override
+	public boolean isIncluded(UntilPoint p) {
+		return this.getNumber() < p.getNumber();
+	}
+	
 }

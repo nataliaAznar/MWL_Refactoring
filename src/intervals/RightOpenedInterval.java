@@ -23,12 +23,6 @@ public class RightOpenedInterval extends Interval{
 	}
 
 	@Override
-	public boolean isIncluded(BothOpenedInterval interval) {
-		return (interval.includes(minimum.getNumber()))
-				&& this.isIncludedMaximum(interval);
-	}
-
-	@Override
 	public boolean isIncluded(LeftOpenedInterval interval) {
 		return (interval.includes(minimum.getNumber()))
 				&& this.isIncludedMaximum(interval);

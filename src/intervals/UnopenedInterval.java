@@ -23,11 +23,6 @@ public class UnopenedInterval extends Interval{
 	}
 
 	@Override
-	public boolean isIncluded(BothOpenedInterval interval) {
-		return (interval.includes(minimum.getNumber())) && (interval.includes(maximum.getNumber()));
-	}
-
-	@Override
 	public boolean isIncluded(LeftOpenedInterval interval) {
 		return (interval.includes(minimum.getNumber()))
 				&& (interval.includes(maximum.getNumber()) || maximum.getNumber() == interval.maximum.getNumber());

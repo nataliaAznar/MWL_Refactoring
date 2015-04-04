@@ -11,7 +11,8 @@ public class BothOpenedInterval extends Interval {
 	}
 	
 	public boolean includes(Interval interval) {
-		return interval.isIncluded(this);
+		return minimum.includes(interval.minimum)&&minimum.includes(interval.maximum)&&
+				maximum.includes(interval.minimum)&&maximum.includes(interval.maximum);
 	}
 	
 	public boolean intersectsWith(Interval interval) {
@@ -22,11 +23,6 @@ public class BothOpenedInterval extends Interval {
 			return false;
 		}
 		return intersectsWithDefault(interval);
-	}
-
-	@Override
-	public boolean isIncluded(BothOpenedInterval interval) {
-		return this.isIncludedDefault(interval);
 	}
 
 	@Override

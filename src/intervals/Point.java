@@ -1,6 +1,6 @@
 package intervals;
 
-public class Point {
+public abstract class Point {
 	private double number;
 
 	public Point(double number) {
@@ -14,6 +14,14 @@ public class Point {
 	public void setNumber(double number) {
 		this.number = number;
 	}
+	
+	public boolean includes(Point p){
+		return true;
+	}
+	
+	public abstract boolean isIncluded(FromPoint p);
+	
+	public abstract boolean isIncluded(UntilPoint p);
 	
 	@Override
 	public boolean equals(Object object) {
