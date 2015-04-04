@@ -26,16 +26,6 @@ public class BothOpenedInterval extends Interval {
 	}
 
 	@Override
-	public boolean isIncluded(LeftOpenedInterval interval) {
-		return this.isIncludedDefault(interval);
-	}
-
-	@Override
-	public boolean isIncluded(RightOpenedInterval interval) {
-		return this.isIncludedDefault(interval);
-	}
-
-	@Override
 	public boolean isIncluded(UnopenedInterval interval) {
 		return this.isIncludedDefault(interval);
 	}
