@@ -26,6 +26,8 @@ public abstract class Point {
 	
 	public abstract boolean intersectsWith(Point p);
 	
+	public abstract boolean isIntersected(ExactPoint p);
+	
 	@Override
 	public boolean equals(Object object) {
 		Point point = (Point) object;

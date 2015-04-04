@@ -7,11 +7,13 @@ public class LeftOpenedInterval extends Interval{
 	}
 	
 	public boolean intersectsWith(Interval interval) {
-		if (minimum.getNumber() == interval.maximum.getNumber()) 
-			return false;
-		if (maximum.getNumber() == interval.minimum.getNumber()) 
-			return interval.isIntersected(this);
-		return intersectsWithDefault(interval);
+		return (minimum.intersectsWith(interval.minimum)&&maximum.intersectsWith(interval.minimum))
+				|| (minimum.intersectsWith(interval.maximum)&&maximum.intersectsWith(interval.maximum));
+//		if (minimum.getNumber() == interval.maximum.getNumber()) 
+//			return false;
+//		if (maximum.getNumber() == interval.minimum.getNumber()) 
+//			return interval.isIntersected(this);
+//		return intersectsWithDefault(interval);
 	}
 	
 	@Override

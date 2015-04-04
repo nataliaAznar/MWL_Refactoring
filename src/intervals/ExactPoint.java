@@ -28,6 +28,14 @@ public class ExactPoint extends Point{
 
 	@Override
 	public boolean intersectsWith(Point p) {
-		return false;
+		return p.isIntersected(this);
+	}
+
+	@Override
+	public boolean isIntersected(ExactPoint p) {
+		if( p.getType().equals(Type.MAXIMUM))
+			return p.getNumber() >= this.getNumber();
+		else
+			return p.getNumber() <= this.getNumber();
 	}
 }
