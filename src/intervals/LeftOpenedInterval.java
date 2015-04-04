@@ -11,14 +11,5 @@ public class LeftOpenedInterval extends Interval{
 				|| (minimum.intersectsWith(interval.maximum)&&maximum.intersectsWith(interval.maximum));
 	}
 	
-	@Override
-	public boolean isIntersected(RightOpenedInterval interval){
-		return true;
-	}
-	
-	@Override
-	public boolean isIntersectedMinimum(UnopenedInterval interval){
-		return true;
-	}
 
 }

@@ -7,16 +7,9 @@ public class RightOpenedInterval extends Interval{
 	}
 	
 	public boolean intersectsWith(Interval interval) {
-		if (minimum.getNumber() == interval.maximum.getNumber()) 
-			return interval.isIntersected(this);
-		if (maximum.getNumber() == interval.minimum.getNumber())
-			return false;
-		return intersectsWithDefault(interval);
+		return (minimum.intersectsWith(interval.minimum)&&maximum.intersectsWith(interval.minimum))
+				|| (minimum.intersectsWith(interval.maximum)&&maximum.intersectsWith(interval.maximum));
 	}
 	
-	@Override
-	public boolean isIntersectedMaximum(UnopenedInterval interval){
-		return true;
-	}
 
 }
