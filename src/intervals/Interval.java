@@ -21,10 +21,6 @@ public abstract class Interval {
 				|| (minimum.includes(interval.maximum)&&maximum.includes(interval.maximum));
 	}
 	
-	public boolean isIntersected(LeftOpenedInterval interval){
-		return false;
-	}
-	
 	public boolean isIntersected(RightOpenedInterval interval){
 		return false;
 	}

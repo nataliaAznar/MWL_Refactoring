@@ -15,11 +15,6 @@ public class UnopenedInterval extends Interval{
 	}
 	
 	@Override
-	public boolean isIntersected(LeftOpenedInterval interval){
-		return true;
-	}
-	
-	@Override
 	public boolean isIntersected(RightOpenedInterval interval){
 		return true;
 	}
