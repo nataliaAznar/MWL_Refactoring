@@ -10,10 +10,6 @@ public abstract class Point {
 	public double getNumber() {
 		return number;
 	}
-
-	public void setNumber(double number) {
-		this.number = number;
-	}
 	
 	public abstract boolean includes(Point p);
 	
@@ -27,6 +23,8 @@ public abstract class Point {
 		else
 			return p.getNumber() <= this.getNumber();
 	}
+	
+	public abstract boolean intersectsWith(Point p);
 	
 	@Override
 	public boolean equals(Object object) {

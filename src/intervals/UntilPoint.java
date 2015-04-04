@@ -20,4 +20,9 @@ public class UntilPoint extends Point{
 		return this.getNumber() <= p.getNumber();
 	}
 
+	@Override
+	public boolean intersectsWith(Point p) {
+		return p.getNumber() < this.getNumber();
+	}
+
 }

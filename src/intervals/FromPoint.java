@@ -21,5 +21,10 @@ public class FromPoint extends Point{
 		return this.getNumber() < p.getNumber();
 	}
 
+	@Override
+	public boolean intersectsWith(Point p) {
+		return this.getNumber() < p.getNumber();
+	}
+
 	
 }

@@ -25,4 +25,9 @@ public class ExactPoint extends Point{
 	public boolean isIncluded(UntilPoint p) {
 		return this.getNumber() < p.getNumber();
 	}
+
+	@Override
+	public boolean intersectsWith(Point p) {
+		return false;
+	}
 }
