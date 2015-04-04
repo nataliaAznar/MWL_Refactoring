@@ -34,5 +34,9 @@ public class FromPoint extends Point{
 			return p.getNumber() < this.getNumber();
 	}
 
+	@Override
+	public String toString() {
+		return "(" + this.getNumber();
+	}
 	
 }

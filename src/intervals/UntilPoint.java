@@ -32,5 +32,10 @@ public class UntilPoint extends Point{
 		else
 			return p.getNumber() < this.getNumber();
 	}
+	
+	@Override
+	public String toString() {
+		return this.getNumber() + ")";
+	}
 
 }

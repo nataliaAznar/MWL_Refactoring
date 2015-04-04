@@ -38,4 +38,12 @@ public class ExactPoint extends Point{
 		else
 			return p.getNumber() <= this.getNumber();
 	}
+	
+	@Override
+	public String toString(){
+		if( this.getType().equals(Type.MAXIMUM))
+			return this.getNumber() + "]";
+		else
+			return this.getNumber() + "[";
+	}
 }
