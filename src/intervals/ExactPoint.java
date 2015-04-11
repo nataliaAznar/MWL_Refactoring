@@ -1,6 +1,6 @@
 package intervals;
 
-public class ExactPoint extends Point{
+public abstract class ExactPoint extends Point{
 	private Type type;
 
 	public ExactPoint(double number, Type type) {
@@ -11,6 +11,10 @@ public class ExactPoint extends Point{
 	protected Type getType() {
 		return type;
 	}
+	
+
+	@Override
+	public abstract boolean intersectsWith(Point p);
 
 	public boolean includes(Point p){
 		return p.isIncluded(this);
@@ -27,23 +31,12 @@ public class ExactPoint extends Point{
 	}
 
 	@Override
-	public boolean intersectsWith(Point p) {
-		return p.isIntersected(this);
-	}
-
-	@Override
-	public boolean isIntersected(ExactPoint p) {
-		if( p.getType().equals(Type.MAXIMUM))
-			return p.getNumber() >= this.getNumber();
-		else
-			return p.getNumber() <= this.getNumber();
+	public boolean isIntersected(FromExactPoint p) {
+		return p.getNumber() <= this.getNumber();
 	}
 	
 	@Override
-	public String toString(){
-		if( this.getType().equals(Type.MAXIMUM))
-			return this.getNumber() + "]";
-		else
-			return this.getNumber() + "[";
+	public boolean isIntersected(UntilExactPoint p) {
+		return p.getNumber() >= this.getNumber();
 	}
 }

@@ -27,16 +27,18 @@ public class FromPoint extends Point{
 	}
 
 	@Override
-	public boolean isIntersected(ExactPoint p) {
-		if( p.getType().equals(Type.MAXIMUM))
-			return p.getNumber() > this.getNumber();
-		else
-			return p.getNumber() < this.getNumber();
+	public String toString() {
+		return "(" + this.getNumber();
 	}
 
 	@Override
-	public String toString() {
-		return "(" + this.getNumber();
+	public boolean isIntersected(FromExactPoint p) {
+		return p.getNumber() < this.getNumber();
+	}
+
+	@Override
+	public boolean isIntersected(UntilExactPoint p) {
+		return p.getNumber() > this.getNumber();
 	}
 	
 }
