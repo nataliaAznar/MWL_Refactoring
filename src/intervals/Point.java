@@ -17,11 +17,12 @@ public abstract class Point {
 	
 	public abstract boolean isIncluded(UntilPoint p);
 	
-	public boolean isIncluded(ExactPoint p) {
-		if( p.getType().equals(Type.MAXIMUM))
-			return p.getNumber() >= this.getNumber();
-		else
-			return p.getNumber() <= this.getNumber();
+	public boolean isIncluded(FromExactPoint p) {
+		return p.getNumber() <= this.getNumber();
+	}
+	
+	public boolean isIncluded(UntilExactPoint p) {
+		return p.getNumber() >= this.getNumber();
 	}
 	
 	public abstract boolean intersectsWith(Point p);

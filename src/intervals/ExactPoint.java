@@ -1,24 +1,15 @@
 package intervals;
 
 public abstract class ExactPoint extends Point{
-	private Type type;
 
-	public ExactPoint(double number, Type type) {
+	public ExactPoint(double number) {
 		super(number);
-		this.type = type;
 	}
-	
-	protected Type getType() {
-		return type;
-	}
-	
 
 	@Override
 	public abstract boolean intersectsWith(Point p);
 
-	public boolean includes(Point p){
-		return p.isIncluded(this);
-	}
+	public abstract boolean includes(Point p);
 
 	@Override
 	public boolean isIncluded(FromPoint p) {
